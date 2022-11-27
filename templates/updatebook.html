@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Book Update</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <div class="container" align=center>
+        <h1 style=border-radius:10px>Library Management System</h1>
+        <nav class="navbar navbar-expand-lg bg-warning">
+            <div class="container-fluid">
+                <div id="logo">
+                    <img src="/static/Photos/logo.png" height='75px' width='75px' alt="MyLibrary.com">
+                </div>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button> &nbsp; &nbsp;
+                <div class="collapse navbar-collapse" id="navbarScroll">
+                    <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+                        <li class="nav-item">
+                            <a href="/" class="btn bi bi-toggle1-on btn-secondary" type="button" data-bs-auto-close="true" aria-expanded="false">
+                                <span class="pe-2"> Home</span>
+                            </a>
+                        </li>
+                        &nbsp; &nbsp;
+                        <div class="btn-group">
+                            <button class="btn dropdown-toggle bi bi-toggle1-on btn-secondary" type="button" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
+               <span class="pe-2">Sort ID</span> 
+              </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item text-decoration-none " href="/lowtohigh/">Ascending ID</a></li>
+                                <li><a class="dropdown-item text-decoration-none" href="/hightolow/">Descending ID</a></li>
+                            </ul>
+                        </div>
+                        &nbsp; &nbsp;
+                        <div class="btn-group">
+                            <button class="btn dropdown-toggle bi bi-toggle1-on btn btn-secondary" type="button" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
+                <span class="pe-2">Sort Books</span>
+              </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item text-decoration-none " href="/AtoZ/">A to Z </a></li>
+                                <li><a class="dropdown-item text-decoration-none" href="/ZtoA/">Z to A</a></li>
+                            </ul </div>
+                            &nbsp; &nbsp;
+                            <div class="btn-group">
+                                <button class="btn dropdown-toggle bi bi-toggle1-on btn btn-secondary" type="button" data-bs-toggle="dropdown" data-bs-auto-close="inside" aria-expanded="false">
+                <span class="pe-2">Sort Author</span>
+              </button>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item text-decoration-none" href="/AatoZz/">A to Z</a></li>
+                                    <li><a class="dropdown-item text-decoration-none" href="/ZztoAa/">Z to A</a></li>
+                                </ul>
+                            </div>
+                            &nbsp; &nbsp;
+                            <div class="btn-group">
+                                <button class="btn dropdown-toggle bi bi-toggle1-on btn btn-secondary" type="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
+                <span class="pe-2">Sort Price </span>
+              </button>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item text-decoration-none" href="/ltoh/">Low to High</a></li>
+                                    <li><a class="dropdown-item text-decoration-none" href="/htol/">High to Low </a></li>
+                                </ul>
+                            </div>
+                            &nbsp; &nbsp;
+                            <div class="btn-group">
+                                <button class="btn dropdown-toggle bi bi-toggle1-on btn btn-secondary" type="button" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
+                <span class="pe-2">Type of Books </span> 
+              </button>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="/catfilter/non-fiction">Non-Fiction </a></li>
+                                    <li><a class="dropdown-item" href="/catfilter/edited">Edited</a></li>
+                                    <li><a class="dropdown-item" href="/catfilter/Reference">Reference</a></li>
+                                    <li><a class="dropdown-item" href="/catfilter/Fiction">Fiction</a></li>
+                                </ul>
+                            </div>
+                            &nbsp; &nbsp;
+                            <form class="d-flex" role="search" action="/updatebook/{{'search'}}">
+                                <input class="form-control me-2" type="search" placeholder="{{ search_value|default:'Search' }}" aria-label="Search" name="search">
+                                <button class="btn btn-outline-success" type="submit">Search</button>
+                            </form>
+                        </div>
+                </div>
+        </nav>
+        <table class="table table-success table-striped">
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Book Name</th>
+                <th scope="col">Author Name</th>
+                <th scope="col">Price</th>
+                <th scope="col">Type of Book</th>
+                <th scope="col">Update</th>
+                <th scope="col">Delete</th>
+            </tr>
+            <thead>
+                <tbody>
+
+                    {% for d in datas %}
+                    <tr>
+                        <td>{{d.id}}</td>
+                        <td>{{d.book_name}}</td>
+                        <td>{{d.author_name}}</td>
+                        <td>{{d.price}}</td>
+                        <td>{{d.Type_of_Book}}</td>
+                        <td><a href="/updatebook/{{d.id}}" class="btn btn-warning"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-fill" viewBox="0 0 16 16">
+                <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"/>
+                </svg></a></td>
+                        <td><a href="/delete/{{d.id}}" class="btn btn-danger"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3-fill" viewBox="0 0 16 16">
+                <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z"/>
+                </svg></a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+        </table>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Best Collections Of Books is Here | MyLibrary.com |</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bentham&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" rel="stylesheet">
+    <style>
+        .hello-msg {
+            font-size: 1.3rem;
+            color: rgb(235, 240, 243);
+        }
+    </style>
+</head>
+
+<body>
+    <nav id="navbar">
+        <div id="logo">
+            <img src="/static/Photos/logo.png" alt="MyLibrary.com">
+        </div>
+
+        <ul>
+            <li class="item"><a href="#">Home</a></li>
+            <li class="item"><a href="/about">About Us</a></li>
+            <li class="item"><a href="/contact">Contact Us</a></li>
+            &NonBreakingSpace; &NonBreakingSpace; &NonBreakingSpace; &NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;
+            &NonBreakingSpace; &NonBreakingSpace; &NonBreakingSpace; &NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;
+            &NonBreakingSpace; &NonBreakingSpace; &NonBreakingSpace; &NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;
+            &NonBreakingSpace; &NonBreakingSpace; &NonBreakingSpace; &NonBreakingSpace; &NonBreakingSpace; &NonBreakingSpace; &NonBreakingSpace; &NonBreakingSpace; &NonBreakingSpace; &NonBreakingSpace; &NonBreakingSpace; &NonBreakingSpace; &NonBreakingSpace;
+            &NonBreakingSpace; &NonBreakingSpace; &NonBreakingSpace; &NonBreakingSpace; &NonBreakingSpace; &NonBreakingSpace; &NonBreakingSpace; &NonBreakingSpace; &NonBreakingSpace; &NonBreakingSpace; &NonBreakingSpace; &NonBreakingSpace; &NonBreakingSpace;
+            &NonBreakingSpace; &NonBreakingSpace; &NonBreakingSpace; &NonBreakingSpace; &NonBreakingSpace; &NonBreakingSpace; &NonBreakingSpace; &NonBreakingSpace; &NonBreakingSpace; &NonBreakingSpace; &NonBreakingSpace; &NonBreakingSpace; &NonBreakingSpace;
+            &NonBreakingSpace; &NonBreakingSpace; &NonBreakingSpace; &NonBreakingSpace; &NonBreakingSpace;
+            <li class="hello-msg"> <strong> Hello, {{request.user}}</strong></li>
+            &nbsp;
+            <li class="item"><a href="{% url 'logout' %}">Logout</a></li>
+        </ul>
+
+    </nav>
+    <section id="home">
+        <h1 class="h-primary"> Welcome to My Library </h1>
+        <p>So Many Books So Little Time</p>
+        <a href="/addbook" class="btn"> Add Your Books</a>
+
+    </section>
+    <section class="services-container">
+        <h1 class="h-primary center">Our Services</h1>
+        <div id="services">
+            <div class="box">
+                <img src="/static/Photos/book.jpg" alt="book">
+                <br>
+                <center> <a href="/viewbook" class="btn"> View Books </a></center>
+                <br>
+                <p class="center">"One glance at a book and you hear the voice of another person, perhaps someone dead for 1,000 years. To read is to voyage through time." – Carl Sagan</p>
+            </div>
+            <div class="box">
+                <img src="/static/Photos/book2.jpg" alt="book">
+                <br>
+                <p class="center">"A book is a garden, an orchard, a storehouse, a party, a company by the way, a counselor, a multitude of counselors." – Charles Baudelaire</p>
+            </div>
+            <div class="box">
+                <img src="/static/Photos/book3.jpg" alt="book">
+                <br>
+                <center> <a href="/upcomingbook" class="btn">Upcoming Books </a></center>
+                <br>
+                <p class="center">"One glance at a book and you hear the voice of another person, perhaps someone dead for 1,000 years. To read is to voyage through time." – Carl Sagan
+
+                </p>
+            </div>
+        </div>
+        <br>
+        <br>
+    </section>
+    <section id="client-section">
+        <h1 class="h-primary center">Our Client</h1>
+        <div id="clients">
+            <div class="client-item">
+                <img src="/static/Photos/lab1.jpg" alt="Our Client">
+            </div>
+            <div class="client-item">
+                <img src="/static/Photos/lab2.png" alt="Our Client">
+            </div>
+            <div class="client-item">
+                <img src="/static/Photos/lab3.png" alt="Our Client">
+            </div>
+            <div class="client-item">
+                <img src="/static/Photos/lab4.png" alt="Our Client">
+            </div>
+            <div class="client-item">
+                <img src="/static/Photos/lab5.jpg" alt="Our Client">
+            </div>
+        </div>
+</body>
+
+</html>
